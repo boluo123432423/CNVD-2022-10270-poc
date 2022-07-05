@@ -32,7 +32,7 @@ def requestsurl(url):#获取cookie:CID
 	print(data,type(repr(data)))
 	print(data["verify_string"])
 	CID = data["verify_string"]
-	det = input("漏洞存在，是否进行利用，yes or no:       ")
+	det = input("漏洞存在，是否进行利用，yes or no:")
 	if det=="no":
 		return
 	while 1:
