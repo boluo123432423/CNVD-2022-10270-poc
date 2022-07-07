@@ -6,6 +6,9 @@
 python CNVD-2022-10270.py  利用
 
 -i    --ip               指定IP地址
--p   --port           指定端口，默认40000-60000\n
+
+-p   --port           指定端口，默认40000-60000
+
 -f   --fexpscan     scan or exp    默认扫描，扫描 or 利用
+
 -t    --thread       指定线程，默认50
